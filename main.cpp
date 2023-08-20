@@ -17,23 +17,28 @@ void adminlist()
     cout << "2- edit proudct :\n";
     cout << "3- delete proudct :\n";
     cout << "4- show proudct :\n";
-    cout<<  "5- back :\n";
+    cout << "5- back :\n";
     cout << "chose option in the list\n";
 }
-void show_product(){
-    system ("cls");
-    fstream data ; 
-    data.open ("database.txt",ios::in);
-    cout<< "Code" << " " << "Name" <<" " << "salary\n";
-    string line ;
-    while(getline(data,line)){
-        cout<< line <<"\n"; 
+void show_product()
+{
+    system("cls");
+    fstream data;
+    data.open("database.txt", ios::in);
+    cout << "Code"
+         << " "
+         << "Name"
+         << " "
+         << "salary\n";
+    string line;
+    while (getline(data, line))
+    {
+        cout << line << "\n";
     }
     data.close();
-    cout<<"enter any key to back \n";
-    string a ;cin>> a ; 
-    
-    
+    cout << "enter any key to back \n";
+    string a;
+    cin >> a;
 }
 void add_proudct(product obj)
 {
@@ -63,38 +68,57 @@ void add_proudct(product obj)
 }
 void buylist()
 {
-    cout<<"not finished:\npress any key to continue ";
-    string m ;cin >> m ;
+    cout << "not finished:\npress any key to continue ";
+    string m;
+    cin >> m;
 }
-void edit_proudct (product obj){
+void edit_proudct(product obj)
+{
     system("cls");
-    cout<<"Code"<<"  "<<"Name" <<"  "<< "Salary\n";
+    cout << "Code"
+         << "  "
+         << "Name"
+         << "  "
+         << "Salary\n";
     obj.print_data();
-    cout<<"\n"<< "enter code product to edit :\n";
-   bool ans =true ; 
-    while(ans){
-        string code ;  
-        cin>>code;
-        if(obj.edit_product(code)==1){
-            cout<<"no found code enter again \n";
+    cout << "\n"
+         << "enter code product to edit :\n";
+    bool ans = true;
+    while (ans)
+    {
+        string code;
+        cin >> code;
+        if (obj.edit_product(code) == 1)
+        {
+            cout << "no found code enter again \n";
         }
-        else {
-            cout<< "edit has sucssfull\n";
-            cout<<"press any key to continue\n";
-            string s; cin>> s;
-            break; 
+        else
+        {
+            cout << "edit has sucssfull\n";
+            cout << "press any key to continue\n";
+            string s;
+            cin >> s;
+            break;
         }
     }
 }
-void delete_product(product obj){
+void delete_product(product obj)
+{
     system("cls");
-    cout<<"Code"<<"  "<<"Name" <<"  "<< "Salary\n";
+    cout << "Code"
+         << "  "
+         << "Name"
+         << "  "
+         << "Salary\n";
     obj.print_data();
-    cout<<"\n"<< "enter code product to delete :\n";
-    string code ; cin>>code;
+    cout << "\n"
+         << "enter code product to delete :\n";
+    string code;
+    cin >> code;
     obj.delete_product(code);
-    cout<<"successful delete\npress any key to continue\n ";
-    string r; cin>>r ; 
+    cout << "successful delete\npress any key to continue\n ";
+    string r;
+    cin >> r;
 }
 int main()
 {
@@ -120,30 +144,36 @@ int main()
                 }
                 else if (ch == 2)
                 {
-                    product obj ;
-                    if(obj.num_object > 0){
+                    product obj;
+                    if (obj.num_object > 0)
+                    {
                         edit_proudct(obj);
                     }
-                    else{
-                        cout<<"no any proudct:\npress any key to back\n";
-                        string k ; cin>> k ;
+                    else
+                    {
+                        cout << "no any proudct:\npress any key to back\n";
+                        string k;
+                        cin >> k;
                         continue;
                     }
-
                 }
                 else if (ch == 3)
                 {
-                    product obj ; 
-                    if(obj.num_object > 0){
+                    product obj;
+                    if (obj.num_object > 0)
+                    {
                         delete_product(obj);
                     }
-                    else{
-                        cout<<"no any proudct:\npress any key to back\n";
-                        string k ; cin>> k ;
-                        continue; 
+                    else
+                    {
+                        cout << "no any proudct:\npress any key to back\n";
+                        string k;
+                        cin >> k;
+                        continue;
                     }
                 }
-                else if (ch == 4){
+                else if (ch == 4)
+                {
                     show_product();
                 }
                 else if (ch == 5)
